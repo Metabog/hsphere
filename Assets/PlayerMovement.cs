@@ -4,13 +4,16 @@ using UnityEngine.Networking;
 
 public class PlayerMovement : NetworkBehaviour {
 
+	GameObject hsphere;
+
 	// Use this for initialization
 	void Start () {
 		//this.GetComponent<Rigidbody> ().freezeRotation = true;
 		this.GetComponent<Rigidbody> ().angularDrag = 2.0f;
-
+		hsphere = GameObject.Find ("hsphere_collider");
 	}
 	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -23,7 +26,13 @@ public class PlayerMovement : NetworkBehaviour {
 		if (!isLocalPlayer)
 			return;
 
-		print ("lololol");
+		MeshCollider hsphCollider = hsphere.GetComponent<MeshCollider> ();
+
+		bool isTouchingSurface = false;
+		Ray downRay = new Ray (transform.position, -transform.up);
+		RaycastHit rcInfo;
+
+		isTouchingSurface = hsphCollider.Raycast (downRay, out rcInfo, 10.0f);
 
 		//AIMING RAYCAST, SHOULD GET THIS FROM THE PLAYER INSTEAD OF RECALC HERE
 		Ray camRay = GameObject.Find ("MainCam").GetComponent<Camera>().ScreenPointToRay (Input.mousePosition);
@@ -53,7 +62,7 @@ public class PlayerMovement : NetworkBehaviour {
 		
 		if(Input.GetKey(KeyCode.W))
 		{
-			this.GetComponent<Rigidbody>().AddForce(transform.forward*20.0f);
+			this.GetComponent<Rigidbody>().AddForce(transform.forward*30.0f);
 		}
 		
 		if(Input.GetKey(KeyCode.D))
@@ -65,10 +74,11 @@ public class PlayerMovement : NetworkBehaviour {
 		{
 			this.transform.Rotate(0.0f,-2f,0.0f);
 		}
-		
+
 		if(Input.GetKey(KeyCode.S))
 		{
-			this.GetComponent<Rigidbody>().AddForce(-transform.forward*10.0f);
+			if(isTouchingSurface)
+				this.GetComponent<Rigidbody>().AddForce(-this.GetComponent<Rigidbody>().velocity.normalized*30.0f);
 		}
 		
 		if(Input.GetKeyDown(KeyCode.Space))
