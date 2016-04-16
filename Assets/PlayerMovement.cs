@@ -46,16 +46,11 @@ public class PlayerMovement : NetworkBehaviour {
     [Command]
     void CmdFire(Vector3 lookat)
     {
-        print("lookat");
-        print(lookat);
         GameObject newRocket = (GameObject)Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
         newRocket.transform.LookAt(lookat);
         newRocket.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-        // make the bullet move away in front of the player
-       // this.transform.position += this.transform.forward * 4.0f;
-        
-        newRocket.GetComponent<Rigidbody>().velocity = newRocket.transform.forward * 40.0f;
-        print(newRocket.GetComponent<Rigidbody>().velocity);
+
+        newRocket.GetComponent<Rigidbody>().velocity = newRocket.transform.forward * 220.0f;
 
         // spawn the bullet on the clients
         NetworkServer.Spawn(newRocket);
@@ -133,11 +128,7 @@ public class PlayerMovement : NetworkBehaviour {
 		}
 
 		if (Input.GetMouseButtonDown (0)) {
-
-            print("lookat");
-            print(aimRay.origin + aimRay.direction * 30.0f);
             CmdFire(aimRay.origin + aimRay.direction * 30.0f);
-
 		}
 		
 		Debug.DrawRay (this.transform.position, this.transform.forward*100.0f, Color.red);
