@@ -23,7 +23,7 @@ desktop: 1920x1200 59Hz; virtual: 3840x1200 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.562365 ms
+UnloadTime: 0.798431 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: a04 -> priority: 1 
-  Thread -> id: 2440 -> priority: 1 
+  Thread -> id: 2328 -> priority: 1 
+  Thread -> id: 1348 -> priority: 1 
