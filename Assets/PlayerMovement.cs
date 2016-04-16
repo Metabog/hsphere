@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 public class PlayerMovement : NetworkBehaviour {
 
 	GameObject hsphere;
+    public GameObject bulletPrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,18 @@ public class PlayerMovement : NetworkBehaviour {
 
 		print ("update function called.");
 	}
+
+    void Fire(Ray aimRay)
+    {
+        GameObject newRocket = (GameObject)Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+        newRocket.transform.LookAt(aimRay.origin + aimRay.direction * 30.0f);
+        newRocket.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+        // make the bullet move away in front of the player
+        //newRocket.GetComponent<Rigidbody>().velocity = -transform.forward * 4;
+
+        this.GetComponent<AudioSource>().pitch = Random.value * 0.5f + 0.75f;
+        this.GetComponent<AudioSource>().Play();
+    }
 
 	void FixedUpdate()
 	{
@@ -87,12 +100,7 @@ public class PlayerMovement : NetworkBehaviour {
 		}
 
 		if (Input.GetMouseButtonDown (0)) {
-			GameObject newRocket = (GameObject) Instantiate(Resources.Load("RocketPrefab"), this.transform.position, Quaternion.identity);
-			newRocket.transform.LookAt(aimRay.origin+ aimRay.direction*30.0f);
-			newRocket.transform.localScale = new Vector3(0.7f,0.7f,0.7f);
-
-			this.GetComponent<AudioSource>().pitch = Random.value * 0.5f + 0.75f;
-			this.GetComponent<AudioSource>().Play();
+            Fire(aimRay);
 
 		}
 		
