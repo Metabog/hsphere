@@ -77,10 +77,10 @@ GameObject:
   - 64: {fileID: 6436510}
   - 54: {fileID: 5445714}
   - 114: {fileID: 11424896}
-  - 114: {fileID: 11413392}
   - 114: {fileID: 11483310}
   - 114: {fileID: 11400264}
   - 114: {fileID: 11451306}
+  - 114: {fileID: 11409452}
   m_Layer: 0
   m_Name: PlayerCapsule
   m_TagString: PLAYER
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
---- !u!114 &11413392
+--- !u!114 &11409452
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -564,9 +564,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 154224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d153e50248692d4fb85b324b6cea9b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 28a694d937e47b248907ab298a38940c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &11424896
 MonoBehaviour:
   m_ObjectHideFlags: 1
