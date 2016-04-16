@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 public class PlayerMovement : NetworkBehaviour {
 
 	GameObject hsphere;
+    public GameObject bulletPrefab;
 	bool isOnFloor;
 
 	// Use this for initialization
@@ -41,6 +42,24 @@ public class PlayerMovement : NetworkBehaviour {
 			isOnFloor = false;
 		}
 	}
+
+    [Command]
+    void CmdFire(Vector3 lookat)
+    {
+       
+        GameObject newRocket = (GameObject)Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+        newRocket.transform.LookAt(lookat);
+        newRocket.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+        // make the bullet move away in front of the player
+       // this.transform.position += this.transform.forward * 4.0f;
+        newRocket.GetComponent<Rigidbody>().velocity = newRocket.transform.forward * 40.0f;
+
+        // spawn the bullet on the clients
+        NetworkServer.Spawn(newRocket);
+
+        this.GetComponent<AudioSource>().pitch = Random.value * 0.5f + 0.75f;
+        this.GetComponent<AudioSource>().Play();
+    }
 
 	void FixedUpdate()
 	{
@@ -111,9 +130,9 @@ public class PlayerMovement : NetworkBehaviour {
 		}
 
 		if (Input.GetMouseButtonDown (0)) {
-			GameObject newRocket = (GameObject) Instantiate(Resources.Load("RocketPrefab"), this.transform.position, Quaternion.identity);
-			newRocket.transform.LookAt(aimRay.origin+ aimRay.direction*30.0f);
-			newRocket.transform.localScale = new Vector3(0.7f,0.7f,0.7f);
+
+            CmdFire(aimRay.origin + aimRay.direction * 30.0f);
+
 		}
 		
 		Debug.DrawRay (this.transform.position, this.transform.forward*100.0f, Color.red);

@@ -10,6 +10,6 @@ public class RocketMoveForward : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.position += this.transform.forward * 4.0f;
+		//this.transform.position += this.transform.forward * 4.0f;
 	}
 }
