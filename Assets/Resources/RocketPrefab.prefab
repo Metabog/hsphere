@@ -13,6 +13,8 @@ GameObject:
   - 96: {fileID: 9694476}
   - 114: {fileID: 11435116}
   - 54: {fileID: 5442822}
+  - 114: {fileID: 11474148}
+  - 114: {fileID: 11463220}
   m_Layer: 0
   m_Name: RocketPrefab
   m_TagString: Untagged
@@ -138,6 +140,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309e4e30f17ef4943adf8d8670b33c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11463220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &11474148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 172
+    i1: 117
+    i2: 101
+    i3: 44
+    i4: 115
+    i5: 22
+    i6: 68
+    i7: 132
+    i8: 42
+    i9: 162
+    i10: 249
+    i11: 228
+    i12: 95
+    i13: 216
+    i14: 137
+    i15: 215
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -151,6 +205,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SendInterval
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
