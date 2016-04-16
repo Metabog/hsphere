@@ -68,8 +68,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-  m_LightmapSnapshot: {fileID: 112000000, guid: d81788b4be8f7dd44bbd0d87cce9ac5f,
-    type: 2}
+  m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
 NavMeshSettings:
@@ -983,7 +982,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 542068765}
   m_LocalRotation: {x: -.153538957, y: 0, z: 0, w: .98814261}
-  m_LocalPosition: {x: 9.9467001, y: -13.2630415, z: 144.710007}
+  m_LocalPosition: {x: 9.9467001, y: -13.2630415, z: 53.9467735}
   m_LocalScale: {x: 1.95350969, y: 1.95350945, z: 1.95350945}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1103,7 +1102,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 679521764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0249357224, y: -.111515045, z: 13.7600002}
+  m_LocalPosition: {x: -.0249357224, y: -.111515045, z: .0637197495}
   m_LocalScale: {x: 3341.98242, y: 3341.98438, z: 3341.98438}
   m_Children: []
   m_Father: {fileID: 1350654989}
@@ -1270,7 +1269,8 @@ MonoBehaviour:
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
   m_OnlineScene: 
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 142918, guid: ac75652c731644842aa2f9e45fd889d7, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -2110,8 +2110,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1238271909}
   m_LocalRotation: {x: -.153538957, y: 0, z: 0, w: .98814261}
-  m_LocalPosition: {x: 18.3589993, y: 68.189003, z: 222.460007}
-  m_LocalScale: {x: 8.72904205, y: 8.72903919, z: 8.72903919}
+  m_LocalPosition: {x: 18.1900005, y: 3.06999993, z: 20.2999992}
+  m_LocalScale: {x: 1.95350969, y: 1.95350945, z: 1.95350945}
   m_Children:
   - {fileID: 845175255}
   m_Father: {fileID: 0}
@@ -2399,7 +2399,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1350654985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.93000031, y: -18.3990002, z: 131.110001}
+  m_LocalPosition: {x: 9.93000031, y: -18.3990002, z: 57.9099998}
   m_LocalScale: {x: 1.28213251, y: 1.28213251, z: 1.28213251}
   m_Children:
   - {fileID: 679521766}
@@ -3483,7 +3483,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2014519668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.93000031, y: -16.2800007, z: 148.679993}
+  m_LocalPosition: {x: 9.93000031, y: -16.2800007, z: 57.9099998}
   m_LocalScale: {x: 1.28213251, y: 1.28213251, z: 1.28213251}
   m_Children: []
   m_Father: {fileID: 0}
