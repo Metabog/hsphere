@@ -39,11 +39,13 @@ public class PlayerMovement : NetworkBehaviour {
 
     void Fire(Ray aimRay)
     {
+       
         GameObject newRocket = (GameObject)Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
         newRocket.transform.LookAt(aimRay.origin + aimRay.direction * 30.0f);
         newRocket.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
         // make the bullet move away in front of the player
-        //newRocket.GetComponent<Rigidbody>().velocity = -transform.forward * 4;
+       // this.transform.position += this.transform.forward * 4.0f;
+        newRocket.GetComponent<Rigidbody>().velocity = newRocket.transform.forward * 40.0f;
 
         this.GetComponent<AudioSource>().pitch = Random.value * 0.5f + 0.75f;
         this.GetComponent<AudioSource>().Play();
