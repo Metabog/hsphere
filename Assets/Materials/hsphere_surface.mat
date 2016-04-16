@@ -162,7 +162,7 @@ Material:
       data:
         first:
           name: _Snapping
-        second: 1
+        second: 2.20000005
       data:
         first:
           name: _Reflect

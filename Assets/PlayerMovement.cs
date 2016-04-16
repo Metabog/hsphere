@@ -26,6 +26,12 @@ public class PlayerMovement : NetworkBehaviour {
 		{
 			isOnFloor = true;
 		}
+
+		transform.FindChild ("impact").GetComponent<AudioSource> ().pitch = Random.value + 0.25f;
+		transform.FindChild ("impact").GetComponent<AudioSource> ().volume = Random.value * hit.relativeVelocity.magnitude *0.01f;
+
+		transform.FindChild ("impact").GetComponent<AudioSource> ().Play ();
+
 	}
 
 	void OnCollisionExit (Collision hit)
@@ -75,7 +81,6 @@ public class PlayerMovement : NetworkBehaviour {
 		//orient upwards
 		
 		Plane plane = new Plane (-grav.normalized, grav);
-		
 
 		transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.FromToRotation (transform.up, plane.normal) * transform.rotation, 0.4f);
 		
@@ -109,10 +114,6 @@ public class PlayerMovement : NetworkBehaviour {
 			GameObject newRocket = (GameObject) Instantiate(Resources.Load("RocketPrefab"), this.transform.position, Quaternion.identity);
 			newRocket.transform.LookAt(aimRay.origin+ aimRay.direction*30.0f);
 			newRocket.transform.localScale = new Vector3(0.7f,0.7f,0.7f);
-
-			this.GetComponent<AudioSource>().pitch = Random.value * 0.5f + 0.75f;
-			this.GetComponent<AudioSource>().Play();
-
 		}
 		
 		Debug.DrawRay (this.transform.position, this.transform.forward*100.0f, Color.red);

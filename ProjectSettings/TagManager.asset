@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PLAYER
   - floor
+  - wooshSound
   layers:
   - Default
   - TransparentFX
