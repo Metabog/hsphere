@@ -23,21 +23,18 @@ public class Combat : NetworkBehaviour
         if (!isServer)
             return;
 
-         
-
         health -= amount;
+        if (health <= 0)
+        {
+            // called on the server, will be invoked on the clients
+            RpcRespawn();
+
+            health = 100;
+        }
 
         if (isLocalPlayer)
         {
             healthText.GetComponent<Text>().text = "HEALTH " + health;
-        }
-
-        if (health <= 0)
-        {
-            health = 100;
-
-            // called on the server, will be invoked on the clients
-            RpcRespawn();
         }
     }
 
