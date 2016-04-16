@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 public class PlayerMovement : NetworkBehaviour {
 
 	GameObject hsphere;
+	bool isOnFloor;
 
 	// Use this for initialization
 	void Start () {
@@ -12,12 +13,27 @@ public class PlayerMovement : NetworkBehaviour {
 		this.GetComponent<Rigidbody> ().angularDrag = 2.0f;
 		hsphere = GameObject.Find ("hsphere_collider");
 	}
-	
 
 	// Update is called once per frame
 	void Update () {
 
-		print ("update function called.");
+	}
+
+
+	void OnCollisionEnter (Collision hit)
+	{
+		if(hit.gameObject.tag == "floor")
+		{
+			isOnFloor = true;
+		}
+	}
+
+	void OnCollisionExit (Collision hit)
+	{
+		if(hit.gameObject.tag == "floor")
+		{
+			isOnFloor = false;
+		}
 	}
 
 	void FixedUpdate()
@@ -29,14 +45,17 @@ public class PlayerMovement : NetworkBehaviour {
 		MeshCollider hsphCollider = hsphere.GetComponent<MeshCollider> ();
 
 		bool isTouchingSurface = false;
+
 		Ray downRay = new Ray (transform.position, -transform.up);
 		RaycastHit rcInfo;
 
-		isTouchingSurface = hsphCollider.Raycast (downRay, out rcInfo, 10.0f);
+		isTouchingSurface = hsphCollider.Raycast (downRay, out rcInfo, 1000000.0f);
+
 
 		//AIMING RAYCAST, SHOULD GET THIS FROM THE PLAYER INSTEAD OF RECALC HERE
 		Ray camRay = GameObject.Find ("MainCam").GetComponent<Camera>().ScreenPointToRay (Input.mousePosition);
-		
+
+
 		Vector3 point = camRay.origin + camRay.direction * 10000.0f;
 		
 		Ray aimRay = new Ray (transform.position, (point - transform.position).normalized);
@@ -77,7 +96,7 @@ public class PlayerMovement : NetworkBehaviour {
 
 		if(Input.GetKey(KeyCode.S))
 		{
-			if(isTouchingSurface)
+			if(isOnFloor)
 				this.GetComponent<Rigidbody>().AddForce(-this.GetComponent<Rigidbody>().velocity.normalized*30.0f);
 		}
 		
