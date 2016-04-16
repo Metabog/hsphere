@@ -10,6 +10,7 @@ public class RocketMoveForward : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        print(GetComponent<Rigidbody>().velocity);
 		//this.transform.position += this.transform.forward * 4.0f;
 	}
 }
