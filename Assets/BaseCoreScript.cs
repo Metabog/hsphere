@@ -24,6 +24,8 @@ public class BaseCoreScript : NetworkBehaviour {
 
 	public void ReduceHealth()
 	{
+		print ("health reducing");
+
 		health-=1;
 
 		if (health == 0) {
