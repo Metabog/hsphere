@@ -26,3 +26,4 @@ ExportedObj/
 sysinfo.txt
 *.pdb
 player_win_x86.pdb
+frel_Data/output_log.txt
