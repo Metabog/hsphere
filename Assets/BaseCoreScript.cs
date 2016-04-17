@@ -12,7 +12,8 @@ public class BaseCoreScript : NetworkBehaviour {
 	bool hasIssuedWarning = false;
 
 	[SyncVar]
-	int health = 80;
+	int health = 10;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -22,51 +23,71 @@ public class BaseCoreScript : NetworkBehaviour {
 	
 	}
 
-	public void ReduceHealth()
-	{
-		health-=1;
+    void OnPlayerConnected(NetworkPlayer player)
+    {
+        //RpcUpdateHealthText();
+    }
 
-		if (health == 0) {
+    [ClientRpc]
+    void RpcUpdateHealthText(int new_health)
+    {
+        //update the displayed text
+        string tag = "undefined";
+        if (team == kTeamTypeBlue)
+        {
+            tag = "blueCoreHealthText";
+            GameObject.Find("blueTeamScoreText").GetComponent<Text>().text = "" + new_health;
+        }
+        else if (team == kTeamTypeRed)
+        {
+            tag = "redCoreHealthText";
+            GameObject.Find("redTeamScoreText").GetComponent<Text>().text = "" + new_health;
+        }
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag(tag))
+        {
+            go.GetComponent<TextMesh>().text = "" + new_health;
+        }
+    }
 
-			if(team == kTeamTypeBlue)
-				GameObject.Find ("redWinrarSound").GetComponent<AudioSource>().Play();
-			else if (team == kTeamTypeRed)
-				GameObject.Find ("blueWinrarSound").GetComponent<AudioSource>().Play();
-
-
-			health = 100;
-			hasIssuedWarning = false;
+    [ClientRpc]
+    void RpcHitCoreEffects(int new_health)
+    {
+        // play sound effects
+        if (new_health == 0)
+        {
+            if (team == kTeamTypeBlue)
+                GameObject.Find("redWinrarSound").GetComponent<AudioSource>().Play();
+            else if (team == kTeamTypeRed)
+                GameObject.Find("blueWinrarSound").GetComponent<AudioSource>().Play();
 
 			GameObject.Find ("GlobalGameState").GetComponent<GlobalGameState>().setStateWin(team);
-		}
 
-		if (health < 20 && !hasIssuedWarning) {
-			hasIssuedWarning = true;
+        }
+        else if (new_health < 20 && !hasIssuedWarning)
+        {
+            hasIssuedWarning = true;
 
-			if(team == kTeamTypeBlue)
-				GameObject.Find ("blueCriticalSound").GetComponent<AudioSource>().Play();
+			if (team == kTeamTypeBlue)
+				GameObject.Find("blueCriticalSound").GetComponent<AudioSource>().Play();
 			else if (team == kTeamTypeRed)
-				GameObject.Find ("redCriticalSound").GetComponent<AudioSource>().Play();
+				GameObject.Find("redCriticalSound").GetComponent<AudioSource>().Play();
 		}
+    }
 
-		string tag = "undefined";
-		if (team == kTeamTypeBlue) {
-			tag = "blueCoreHealthText";
-			GameObject.Find ("blueTeamScoreText").GetComponent<Text>().text = "" +health;
-		}
-		if (team == kTeamTypeRed) {
-			tag = "redCoreHealthText";
-			GameObject.Find ("redTeamScoreText").GetComponent<Text>().text =  "" +health;
-		}
+	public void ReduceHealth()
+	{
+        if (!isServer)
+            return;
 
-		foreach(GameObject go in GameObject.FindGameObjectsWithTag(tag))
-		{
+		health-=1;
 
-			if(health==0)
-				Destroy (go);
+        RpcHitCoreEffects(health);
+        RpcUpdateHealthText(health);
 
-			go.GetComponent<TextMesh>().text = "" + health;
-
-		}
+       // if (health == 0)
+        //{
+       //     health = 100;
+       //     hasIssuedWarning = false;
+       // }
 	}
 }

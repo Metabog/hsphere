@@ -26,8 +26,9 @@ public class GlobalGameState : MonoBehaviour {
 		yield return new WaitForSeconds(time);
 		
 		// Code to execute after the delay
-		NetworkManager.singleton.StopHost();
-
+		NetworkManager.singleton.StopHost ();
+		NetworkManager.singleton.StopClient ();
+		print ("QUIT TO MENU!");
 	}
 
 	public void setStateWin(int team)
@@ -36,11 +37,18 @@ public class GlobalGameState : MonoBehaviour {
 		gameState = kGlobalStateWin;
 
 		GameObject.Find ("MainCam").GetComponent<Camera> ().enabled = false;
+		GameObject.Find ("MainCam").GetComponent<AudioListener> ().enabled = false;
 
 		if (winningTeam == BaseCoreScript.kTeamTypeBlue)
-			GameObject.Find ("BlueCoreWincam").GetComponent<Camera> ().enabled = true;
+		{
+			GameObject.Find ("RedCoreWincam").GetComponent<Camera>().enabled=true;
+			GameObject.Find ("RedCoreWincam").GetComponent<AudioListener>().enabled=true;
+		}
 		if (winningTeam == BaseCoreScript.kTeamTypeRed)
-			GameObject.Find ("RedCoreWincam").GetComponent<Camera> ().enabled = true;
+		{
+			GameObject.Find ("BlueCoreWincam").GetComponent<Camera>().enabled=true;
+			GameObject.Find ("BlueCoreWincam").GetComponent<AudioListener>().enabled=true;
+		}
 
 		QuitGameSoon (3.0f);
 	}
@@ -50,8 +58,12 @@ public class GlobalGameState : MonoBehaviour {
 		winningTeam = -1;
 		gameState = kGlobalStateGame;
 
-		GameObject.Find ("RedCoreWincam").GetComponent<Camera> ().enabled = false;
-		GameObject.Find ("BlueCoreWincam").GetComponent<Camera> ().enabled = false;
-		GameObject.Find ("MainCam").GetComponent<Camera> ().enabled = true;
+		GameObject.Find ("RedCoreWincam").GetComponent<Camera>().enabled=false;
+		GameObject.Find ("BlueCoreWincam").GetComponent<Camera>().enabled=false;
+		GameObject.Find ("MainCam").GetComponent<Camera>().enabled=true;
+
+		GameObject.Find ("RedCoreWincam").GetComponent<AudioListener>().enabled=false;
+		GameObject.Find ("BlueCoreWincam").GetComponent<AudioListener>().enabled=false;
+		GameObject.Find ("MainCam").GetComponent<AudioListener>().enabled=true;
 	}
 }

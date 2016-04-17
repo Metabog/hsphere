@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 474358}
   - 108: {fileID: 10848822}
   m_Layer: 0
-  m_Name: Point light
+  m_Name: playerLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,6 +81,7 @@ GameObject:
   - 114: {fileID: 11400264}
   - 114: {fileID: 11451306}
   - 114: {fileID: 11409452}
+  - 114: {fileID: 11448238}
   m_Layer: 0
   m_Name: PlayerCapsule
   m_TagString: PLAYER
@@ -218,7 +219,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0994186401, y: .540000021, z: .0580265522}
+  m_LocalPosition: {x: -1.50999999, y: 8.56000042, z: .0580265522}
   m_LocalScale: {x: .446450233, y: .446450144, z: .446450144}
   m_Children: []
   m_Father: {fileID: 483776}
@@ -230,7 +231,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 176.273895, y: -114.730431, z: 108.256653}
+  m_LocalPosition: {x: 64.3497238, y: -536.730225, z: 181.467773}
   m_LocalScale: {x: 1.215783, y: 1.21578324, z: 1.21578324}
   m_Children:
   - {fileID: 434264}
@@ -308,7 +309,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 70539c65df5788347946e8d8008550d4, type: 2}
+  - {fileID: 2100000, guid: 9136d3bf888d5e54bbcb4dda80d179eb, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -517,9 +518,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: .595588207, b: .595588207, a: 1}
-  m_Intensity: 1
-  m_Range: 12.6000004
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 5.67999983
+  m_Range: 37.5
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -536,7 +537,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
@@ -584,6 +585,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 142918, guid: ac75652c731644842aa2f9e45fd889d7, type: 2}
+--- !u!114 &11448238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7cd33e6a1fd15f468be3b0ed0c83f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: -1
 --- !u!114 &11451306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,6 +742,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TransformSyncMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: team
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
