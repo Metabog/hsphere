@@ -97,7 +97,7 @@ public class PlayerMovement : NetworkBehaviour {
 		amount = amount * amount;
 		//amount *= 10.0f;
 		
-		this.GetComponent<Rigidbody>().AddForce(grav.normalized*amount);
+		this.GetComponent<Rigidbody>().AddForce(grav.normalized*amount*4.0f);
 		
 		//orient upwards
 		

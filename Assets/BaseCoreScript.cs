@@ -5,8 +5,8 @@ using UnityEngine.Networking;
 
 public class BaseCoreScript : NetworkBehaviour {
 
-	int kTeamTypeRed = 0;
-	int kTeamTypeBlue = 1;
+	public static int kTeamTypeRed = 0;
+	public static int kTeamTypeBlue = 1;
 	public int team;
 
 	bool hasIssuedWarning = false;
@@ -24,8 +24,6 @@ public class BaseCoreScript : NetworkBehaviour {
 
 	public void ReduceHealth()
 	{
-		print ("health reducing");
-
 		health-=1;
 
 		if (health == 0) {
@@ -38,7 +36,8 @@ public class BaseCoreScript : NetworkBehaviour {
 
 			health = 100;
 			hasIssuedWarning = false;
-			GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StopHost();
+
+			GameObject.Find ("GlobalGameState").GetComponent<GlobalGameState>().setStateWin(team);
 		}
 
 		if (health < 20 && !hasIssuedWarning) {
@@ -62,9 +61,12 @@ public class BaseCoreScript : NetworkBehaviour {
 
 		foreach(GameObject go in GameObject.FindGameObjectsWithTag(tag))
 		{
-			go.GetComponent<TextMesh>().text = "" + health;
-		}
-			
 
+			if(health==0)
+				Destroy (go);
+
+			go.GetComponent<TextMesh>().text = "" + health;
+
+		}
 	}
 }

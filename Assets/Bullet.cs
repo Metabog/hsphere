@@ -38,7 +38,6 @@ public class Bullet : MonoBehaviour
 		BaseCoreScript core = hit.GetComponent<BaseCoreScript> ();
 		if(core)
 		{
-			print ("Reducing core health");
 			core.ReduceHealth();
 			Destroy(gameObject);
 		}
