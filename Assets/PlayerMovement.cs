@@ -68,6 +68,7 @@ public class PlayerMovement : NetworkBehaviour {
 		if (!isLocalPlayer)
 			return;
 
+        /*
 		MeshCollider hsphCollider = hsphere.GetComponent<MeshCollider> ();
 
 		bool isTouchingSurface = false;
@@ -76,15 +77,15 @@ public class PlayerMovement : NetworkBehaviour {
 		RaycastHit rcInfo;
 
 		isTouchingSurface = hsphCollider.Raycast (downRay, out rcInfo, 1000000.0f);
-
+        */
 
 		//AIMING RAYCAST, SHOULD GET THIS FROM THE PLAYER INSTEAD OF RECALC HERE
 		Ray camRay = GameObject.Find ("MainCam").GetComponent<Camera>().ScreenPointToRay (Input.mousePosition);
 
-
 		Vector3 point = camRay.origin + camRay.direction * 10000.0f;
-		
-		Ray aimRay = new Ray (transform.position, (point - transform.position).normalized);
+        Transform bulletSpawner = this.transform.FindChild("bulletSpawner").transform;
+
+        Ray aimRay = new Ray(bulletSpawner.position, (point - bulletSpawner.position).normalized);
 		Debug.DrawRay (aimRay.origin, aimRay.direction*100.0f, Color.blue);
 		/////////////////////////////////////////////////////////////////////////
 
