@@ -1,0 +1,156 @@
+Initialize engine version: 5.1.2f1 (afd2369b692a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 780M     (ID=0x119f)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.041 seconds
+desktop: 1920x1200 59Hz; virtual: 3840x1200 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_build\hsphere_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 174 -> priority: 1 
+  Thread -> id: 2898 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.205134 ms
+nblue 0 nred 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Players spawned on red
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 100
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 641.
+Total: 0.303207 ms (FindLiveObjects: 0.027369 ms CreateObjectMapping: 0.021382 ms MarkObjects: 0.246329 ms  DeleteObjects: 0.008125 ms)
+
+nblue 0 nred 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Players spawned on red
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 90
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 80
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 70
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 60
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 50
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 40
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 30
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 20
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 10
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Combat.RpcRespawn () [0x00000] in <filename unknown>:0 
+  at Combat.InvokeRpcRpcRespawn (UnityEngine.Networking.NetworkBehaviour obj, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkBehaviour.InvokeRpcDelegate (Int32 cmdHash, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkBehaviour.InvokeRPC (Int32 cmdHash, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkIdentity.HandleRPC (Int32 cmdHash, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.ClientScene.OnRPCMessage (UnityEngine.Networking.NetworkMessage netMsg) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkMessageHandlers.InvokeHandler (UnityEngine.Networking.NetworkMessage netMsg) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.LocalClient.ProcessInternalMessages () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.LocalClient.Update () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkClient.UpdateClients () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkIdentity.UNetStaticUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+hitting other player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HEALTH 90
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:61239}
