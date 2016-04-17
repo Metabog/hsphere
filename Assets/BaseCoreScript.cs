@@ -24,11 +24,6 @@ public class BaseCoreScript : NetworkBehaviour {
 	
 	}
 
-    void OnPlayerConnected(NetworkPlayer player)
-    {
-        //RpcUpdateHealthText();
-    }
-
     [ClientRpc]
     void RpcUpdateHealthText(int new_health)
     {

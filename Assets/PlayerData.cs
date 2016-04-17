@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class PlayerData : MonoBehaviour {
+public class PlayerData : NetworkBehaviour {
 
+	[SyncVar]
 	public int team=-100;
 
 	// Use this for initialization

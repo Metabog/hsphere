@@ -29,6 +29,7 @@ public class Bogdan : NetworkManager {
 		NetworkManager.singleton.StartClient ();
 	}
 
+
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
 	{
 		GameObject player = (GameObject)Instantiate(Resources.Load ("PlayerCapsule"), Vector3.zero, Quaternion.identity);
