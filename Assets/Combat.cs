@@ -16,6 +16,8 @@ public class Combat : NetworkBehaviour
     {
         healthText = GameObject.Find("healthText");
         spawnPoint = GameObject.Find("spawn");
+
+        UpdateHealthText(health);
     }
 
     public void TakeDamage(int amount)
@@ -32,10 +34,8 @@ public class Combat : NetworkBehaviour
             health = 100;
         }
 
-        if (isLocalPlayer)
-        {
-            healthText.GetComponent<Text>().text = "HEALTH " + health;
-        }
+        //server causes this to be called on the clients
+        RpcTriggerUpdateHealthText(health);
     }
 
     [ClientRpc]
@@ -45,6 +45,21 @@ public class Combat : NetworkBehaviour
         {
             // move back to spawn point
             transform.position = spawnPoint.transform.position;
+        }
+    }
+
+    [ClientRpc]
+    void RpcTriggerUpdateHealthText(int new_health)
+    {
+        UpdateHealthText(new_health);
+    }
+
+    void UpdateHealthText(int new_health)
+    {
+        if (isLocalPlayer)
+        {
+            healthText.GetComponent<Text>().text = "HEALTH " + new_health;
+            print(healthText.GetComponent<Text>().text);
         }
     }
 }
