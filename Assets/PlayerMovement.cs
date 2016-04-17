@@ -74,7 +74,7 @@ public class PlayerMovement : NetworkBehaviour {
         amount = amount * amount;
         //amount *= 10.0f;
 
-        this.GetComponent<Rigidbody>().AddForce(grav.normalized * amount);
+        this.GetComponent<Rigidbody>().AddForce(grav.normalized * amount*4.0f);
 
         //orient upwards
 
@@ -95,7 +95,6 @@ public class PlayerMovement : NetworkBehaviour {
 		Debug.DrawRay (aimRay.origin, aimRay.direction*100.0f, Color.blue);
 		/////////////////////////////////////////////////////////////////////////
 
-		
 		if(Input.GetKey(KeyCode.W))
 		{
 			this.GetComponent<Rigidbody>().AddForce(transform.forward*30.0f);

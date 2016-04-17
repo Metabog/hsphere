@@ -5,14 +5,14 @@ using UnityEngine.Networking;
 
 public class BaseCoreScript : NetworkBehaviour {
 
-	int kTeamTypeRed = 0;
-	int kTeamTypeBlue = 1;
+	public static int kTeamTypeRed = 0;
+	public static int kTeamTypeBlue = 1;
 	public int team;
 
 	bool hasIssuedWarning = false;
 
 	[SyncVar]
-	int health = 80;
+	int health = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -60,16 +60,19 @@ public class BaseCoreScript : NetworkBehaviour {
                 GameObject.Find("redWinrarSound").GetComponent<AudioSource>().Play();
             else if (team == kTeamTypeRed)
                 GameObject.Find("blueWinrarSound").GetComponent<AudioSource>().Play();
+
+			GameObject.Find ("GlobalGameState").GetComponent<GlobalGameState>().setStateWin(team);
+
         }
         else if (new_health < 20 && !hasIssuedWarning)
         {
             hasIssuedWarning = true;
 
-            if (team == kTeamTypeBlue)
-                GameObject.Find("blueCriticalSound").GetComponent<AudioSource>().Play();
-            else if (team == kTeamTypeRed)
-                GameObject.Find("redCriticalSound").GetComponent<AudioSource>().Play();
-        }
+			if (team == kTeamTypeBlue)
+				GameObject.Find("blueCriticalSound").GetComponent<AudioSource>().Play();
+			else if (team == kTeamTypeRed)
+				GameObject.Find("redCriticalSound").GetComponent<AudioSource>().Play();
+		}
     }
 
 	public void ReduceHealth()
@@ -82,11 +85,10 @@ public class BaseCoreScript : NetworkBehaviour {
         RpcHitCoreEffects(health);
         RpcUpdateHealthText(health);
 
-        if (health == 0)
-        {
-            health = 100;
-            hasIssuedWarning = false;
-            GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StopHost();
-        }
+       // if (health == 0)
+        //{
+       //     health = 100;
+       //     hasIssuedWarning = false;
+       // }
 	}
 }
