@@ -16,6 +16,7 @@ public class BaseCoreScript : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        // TODO update health text
 	}
 	
 	// Update is called once per frame

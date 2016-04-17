@@ -4,7 +4,6 @@ using UnityEngine.Networking;
 
 public class PlayerMovement : NetworkBehaviour {
 
-	GameObject hsphere;
     public GameObject bulletPrefab;
 	bool isOnFloor;
 
@@ -12,7 +11,6 @@ public class PlayerMovement : NetworkBehaviour {
 	void Start () {
 		//this.GetComponent<Rigidbody> ().freezeRotation = true;
 		this.GetComponent<Rigidbody> ().angularDrag = 2.0f;
-		hsphere = GameObject.Find ("hsphere_collider");
 	}
 
 	// Update is called once per frame
@@ -48,36 +46,44 @@ public class PlayerMovement : NetworkBehaviour {
     {
 
 		Transform bulletSpawner = this.transform.FindChild ("bulletSpawner").transform;
+        //print(bulletSpawner);
 
 		GameObject newRocket = (GameObject)Instantiate(bulletPrefab, bulletSpawner.position, Quaternion.identity);
         newRocket.transform.LookAt(lookat);
-        newRocket.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+        //newRocket.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
         newRocket.GetComponent<Rigidbody>().velocity = newRocket.transform.forward * 220.0f;
+        newRocket.GetComponent<Bullet>().owner = this.gameObject;
+       // Physics.IgnoreCollision(newRocket.GetComponent<BoxCollider>(), GetComponent<MeshCollider>());
 
         // spawn the bullet on the clients
         NetworkServer.Spawn(newRocket);
 
         // when the bullet is destroyed on the server it will automaticaly be destroyed on clients
-        Destroy(newRocket, 2.0f);
+        Destroy(newRocket, 3.0f);
     }
 
 	void FixedUpdate()
 	{
-	
+
+        //gravity vector points at object from the center of the worldsphere
+        Vector3 grav = this.transform.position;
+
+        //multiple by the distance from the center
+        float amount = grav.magnitude / 400.0f;
+        amount = amount * amount;
+        //amount *= 10.0f;
+
+        this.GetComponent<Rigidbody>().AddForce(grav.normalized * amount*4.0f);
+
+        //orient upwards
+
+        Plane plane = new Plane(-grav.normalized, grav);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, plane.normal) * transform.rotation, 0.4f);
+
 		if (!isLocalPlayer)
 			return;
-
-        /*
-		MeshCollider hsphCollider = hsphere.GetComponent<MeshCollider> ();
-
-		bool isTouchingSurface = false;
-
-		Ray downRay = new Ray (transform.position, -transform.up);
-		RaycastHit rcInfo;
-
-		isTouchingSurface = hsphCollider.Raycast (downRay, out rcInfo, 1000000.0f);
-        */
 
 		//AIMING RAYCAST, SHOULD GET THIS FROM THE PLAYER INSTEAD OF RECALC HERE
 		Ray camRay = GameObject.Find ("MainCam").GetComponent<Camera>().ScreenPointToRay (Input.mousePosition);
@@ -89,22 +95,6 @@ public class PlayerMovement : NetworkBehaviour {
 		Debug.DrawRay (aimRay.origin, aimRay.direction*100.0f, Color.blue);
 		/////////////////////////////////////////////////////////////////////////
 
-		//gravity vector points at object from the center of the worldsphere
-		Vector3 grav = this.transform.position;
-		
-		//multiple by the distance from the center
-		float amount = grav.magnitude/400.0f;
-		amount = amount * amount;
-		//amount *= 10.0f;
-		
-		this.GetComponent<Rigidbody>().AddForce(grav.normalized*amount*4.0f);
-		
-		//orient upwards
-		
-		Plane plane = new Plane (-grav.normalized, grav);
-
-		transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.FromToRotation (transform.up, plane.normal) * transform.rotation, 0.4f);
-		
 		if(Input.GetKey(KeyCode.W))
 		{
 			this.GetComponent<Rigidbody>().AddForce(transform.forward*30.0f);
