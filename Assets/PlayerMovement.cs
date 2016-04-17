@@ -46,7 +46,10 @@ public class PlayerMovement : NetworkBehaviour {
     [Command]
     void CmdFire(Vector3 lookat)
     {
-        GameObject newRocket = (GameObject)Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+
+		Transform bulletSpawner = this.transform.FindChild ("bulletSpawner").transform;
+
+		GameObject newRocket = (GameObject)Instantiate(bulletPrefab, bulletSpawner.position, Quaternion.identity);
         newRocket.transform.LookAt(lookat);
         newRocket.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
 

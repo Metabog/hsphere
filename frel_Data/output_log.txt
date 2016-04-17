@@ -2,29 +2,28 @@ Initialize engine version: 5.3.1f1 (cc9cbbcc37b4)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: ATI Mobility Radeon HD 5870 (ID=0x68a0)
-    Vendor:   ATI
-    VRAM:     1012 MB
+    Renderer: NVIDIA GeForce GTX 780M     (ID=0x119f)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.104 seconds
-Platform assembly: C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Amy\Documents\GitHub\hsphere\frel_Data\Managed\System.dll (this message is harmless)
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.045 seconds
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Bogdan\Documents\Unity\hsphere_git\hsphere\frel_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1200 59Hz; virtual: 3840x1200 at -1920,0
 <RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.868076 ms
+UnloadTime: 0.798431 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: ee4 -> priority: 1 
-  Thread -> id: 1b98 -> priority: 1 
+  Thread -> id: 2328 -> priority: 1 
+  Thread -> id: 1348 -> priority: 1 

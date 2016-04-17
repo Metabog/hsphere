@@ -24,14 +24,22 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+		Instantiate(Resources.Load("bulletExplosion"), this.transform.position,this.transform.rotation);
+
         var hit = collision.gameObject;
         var hitPlayer = hit.GetComponent<PlayerMovement>();
         if (hitPlayer != null)
         {
             var combat = hit.GetComponent<Combat>();
             combat.TakeDamage(10);
-
             Destroy(gameObject);
+
         }
+		BaseCoreScript core = hit.GetComponent<BaseCoreScript> ();
+		if(core)
+		{
+			core.ReduceHealth();
+			Destroy(gameObject);
+		}
     }
 }
