@@ -48,6 +48,7 @@ public class PlayerMovement : NetworkBehaviour {
     {
 
 		Transform bulletSpawner = this.transform.FindChild ("bulletSpawner").transform;
+        print(bulletSpawner);
 
 		GameObject newRocket = (GameObject)Instantiate(bulletPrefab, bulletSpawner.position, Quaternion.identity);
         newRocket.transform.LookAt(lookat);
@@ -64,7 +65,25 @@ public class PlayerMovement : NetworkBehaviour {
 
 	void FixedUpdate()
 	{
-	
+
+        //gravity vector points at object from the center of the worldsphere
+        Vector3 grav = this.transform.position;
+
+        //multiple by the distance from the center
+        float amount = grav.magnitude / 400.0f;
+        amount = amount * amount;
+        //amount *= 10.0f;
+
+        this.GetComponent<Rigidbody>().AddForce(grav.normalized * amount);
+
+        //orient upwards
+
+        Plane plane = new Plane(-grav.normalized, grav);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, plane.normal) * transform.rotation, 0.4f);
+		
+
+
 		if (!isLocalPlayer)
 			return;
 
@@ -89,21 +108,6 @@ public class PlayerMovement : NetworkBehaviour {
 		Debug.DrawRay (aimRay.origin, aimRay.direction*100.0f, Color.blue);
 		/////////////////////////////////////////////////////////////////////////
 
-		//gravity vector points at object from the center of the worldsphere
-		Vector3 grav = this.transform.position;
-		
-		//multiple by the distance from the center
-		float amount = grav.magnitude/400.0f;
-		amount = amount * amount;
-		//amount *= 10.0f;
-		
-		this.GetComponent<Rigidbody>().AddForce(grav.normalized*amount);
-		
-		//orient upwards
-		
-		Plane plane = new Plane (-grav.normalized, grav);
-
-		transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.FromToRotation (transform.up, plane.normal) * transform.rotation, 0.4f);
 		
 		if(Input.GetKey(KeyCode.W))
 		{
