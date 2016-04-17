@@ -76,6 +76,6 @@ public class Bogdan : NetworkManager {
 		player.GetComponent<PlayerData>().team = team;
 
 
-
+        OnServerAddPlayer(conn, playerControllerId, extraMessageReader);
 	}
 }
