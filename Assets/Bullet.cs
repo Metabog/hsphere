@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class Bullet : MonoBehaviour
+public class Bullet : NetworkBehaviour
 {
+    [SyncVar]
+    public GameObject owner;
+
     // Use this for initialization
     void Start()
     {
@@ -12,7 +16,9 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //print(transform);
         
+
         //GameObject[] players = GameObject.FindGameObjectsWithTag("PLAYER");
    
        // foreach (GameObject player in players) {
@@ -22,24 +28,50 @@ public class Bullet : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-		Instantiate(Resources.Load("bulletExplosion"), this.transform.position,this.transform.rotation);
-
         var hit = collision.gameObject;
+        if (owner == hit)
+        {
+            //print("not hitting owner");
+            return;
+        }
+
+        if (hit.GetComponent<Bullet>())
+        {
+            //print("not hitting bullet");
+            return;
+        }
+
+        /*
+        if (hit.tag == "floor")
+        {
+            print("hitting floor");
+        }
+        else
+        {
+            print("hit something not floor");
+        }
+         * */
+
+        Instantiate(Resources.Load("bulletExplosion"), this.transform.position, this.transform.rotation);
+
         var hitPlayer = hit.GetComponent<PlayerMovement>();
         if (hitPlayer != null)
         {
+            print("hitting other player");
             var combat = hit.GetComponent<Combat>();
             combat.TakeDamage(10);
             Destroy(gameObject);
 
         }
-		BaseCoreScript core = hit.GetComponent<BaseCoreScript> ();
-		if(core)
-		{
-			core.ReduceHealth();
-			Destroy(gameObject);
-		}
+        BaseCoreScript core = hit.GetComponent<BaseCoreScript>();
+        if (core)
+        {
+            print("hitting core");
+            core.ReduceHealth();
+            Destroy(gameObject);
+        }
+
     }
 }
